@@ -30,18 +30,30 @@ var App = React.createClass({
 	},
   render: function() {
     return (
-      <div className='container'>
-        <h1>Template App</h1>
-        <ul>
-					<NavBar/>
-          <li><Link to="/hello">Hello Module</Link></li>
-          <li><Link to="/helloAgain">Hello Again Module</Link></li>
-          <li><Link to="/hello/helloAgainMessage">Hello Again Module MSG</Link></li>
-        </ul>
-        {this.props.children} {/*This is used so that the router can print correct module.*/}
-				<input type='button' onClick={this.openLogin} value='login'/>
+			<div>
+{/*-----------------------------------------------Header Zone------------------------------------------------------------------*/}
 				<Login/>
-      </div>
+				<div className='container-fluid'>
+					<div className='jumbotron'>
+						<h1>
+						PUCMM Emprende
+							<input type='button' className="btn btn-primary pull-right" onClick={this.openLogin} value='Login'/>
+						</h1>
+					</div>
+
+					<NavBar/>
+				</div>
+{/*----------------------------------------------Container Zone---------------------------------------------------------------*/}
+				<div className='container'>
+	        <ul>
+	          <li><Link to="/hello">Hello Module</Link></li>
+	          <li><Link to="/helloAgain">Hello Again Module</Link></li>
+	          <li><Link to="/hello/helloAgainMessage">Hello Again Module MSG</Link></li>
+	        </ul>
+	        {this.props.children} {/*This is used so that the router can print correct module.*/}
+
+	      </div>
+			</div>
     );
   }
 });
