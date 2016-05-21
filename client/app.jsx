@@ -7,7 +7,7 @@ import {Hello} from './components/hello.jsx';
 import {HelloAgain} from './components/helloAgain.jsx';
 import {Login} from './components/login/login.jsx';
 import {NavBar} from './components/home/navBar.jsx';
-import {Carousel} from './components/home/carousel.jsx';
+import {Home} from './components/home/home.jsx';
 
 
 var App = React.createClass({
@@ -33,22 +33,11 @@ var App = React.createClass({
 							<div className='col-xs-2'><img className='img img-responsive' src='http://www.pucmm.edu.do/recursos/PublishingImages/Paginas/logos/Logo%20PUCMM%20(Color).png'/></div>
 							<div className='col-xs-10'><h1>PUCMM Emprende</h1></div>
 						</div>
-
 					</div>
-
 					<NavBar/>
-					<Carousel/>
 				</div>
 {/*----------------------------------------------Container Zone---------------------------------------------------------------*/}
-				<div className='container'>
-					<ul>
-	          <li><Link to="/hello">Hello Module</Link></li>
-	          <li><Link to="/helloAgain">Hello Again Module</Link></li>
-	          <li><Link to="/hello/helloAgainMessage">Hello Again Module MSG</Link></li>
-	        </ul>
-	        {this.props.children} {/*This is used so that the router can print correct module.*/}
-
-	      </div>
+				{this.props.children}
 			</div>
     );
   }
@@ -57,6 +46,7 @@ var App = React.createClass({
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
+			<Route path="home" component={Home}/>
       <Route path="hello" component={Hello}>
       	<Route path="helloAgainMessage" component={HelloAgain}/>
       </Route>
