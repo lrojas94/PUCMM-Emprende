@@ -39,3 +39,63 @@ input{
   background-color: $pucmm-color;
   color: darken(white,$default-ammount);
 }
+
+.arrow-prev,
+.arrow-next{
+  position: absolute;
+  display: block;
+  height: 1.5em;
+  width: 1.5em;
+  line-height: 0px;
+  font-size: 1.5em; //This should be zero (0)
+  cursor: pointer;
+  background: transparent;
+  color: $pucmm-color;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  padding: 0;
+  border: none;
+  outline: none;
+  &:hover, &:focus {
+      outline: none;
+      background: transparent;
+      color: $pucmm-color;
+      &:before {
+          opacity: 1;
+      }
+    }
+}
+
+.arrow-prev {
+    left: 0px;
+    [dir="rtl"] & {
+        left: auto;
+        right: -25px;
+    }
+    // &:before {          //If you use this, text WILL Appear. but I don't know why.
+    //   position: absolute;
+    //   text-align: center;
+    //     content: '<';
+    //     [dir="rtl"] & {
+    //         content: '>';
+    //     }
+    // }
+}
+
+.arrow-next {
+    right:  0px;
+    [dir="rtl"] & {
+        left: -25px;
+        right: auto;
+    }
+    // &:before {
+    //     position: absolute;
+    //     text-align: center;
+    //     content: '>';
+    //     [dir="rtl"] & {
+    //         content: '<';
+    //     }
+    // }
+}

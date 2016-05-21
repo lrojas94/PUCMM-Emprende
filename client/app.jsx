@@ -37,11 +37,11 @@ var App = React.createClass({
 					</div>
 
 					<NavBar/>
+					<Carousel/>
 				</div>
 {/*----------------------------------------------Container Zone---------------------------------------------------------------*/}
 				<div className='container'>
-				<Carousel/>
-	        <ul>
+					<ul>
 	          <li><Link to="/hello">Hello Module</Link></li>
 	          <li><Link to="/helloAgain">Hello Again Module</Link></li>
 	          <li><Link to="/hello/helloAgainMessage">Hello Again Module MSG</Link></li>

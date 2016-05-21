@@ -5,7 +5,7 @@ var Arrow = React.createClass({
   displayName: 'Arrow',
   render: function(){
     return(
-      <button type="button">Next</button>
+      <button type="button" className={this.props.class}>{this.props.txt}</button>
     );
   }
 });
@@ -19,16 +19,20 @@ export var Carousel = React.createClass({
           slidesToScroll: 1,
           autoplay: true,
           dots: true,
-          Arrows: <Arrow/>
+          nextArrow: '<button type="button" class="arrow-next">></button>',
+          prevArrow: '<button type="button" class="arrow-prev"><</button>',
+
       });
     },
     render: function(){
         return (
-          <div id="slick-carousel" className='jumbotron'>
-			       <div><h1>1</h1></div>
-             <div><h1>2</h1></div>
-             <div><h1>3</h1></div>
-		      </div>
+          <div className="jumbotron">
+            <div id="slick-carousel" className="jumbotron">
+  			       <div><h1>PICTURE #1</h1></div>
+               <div><h1>PICTURE #2</h1></div>
+               <div><h1>PICTURE #3</h1></div>
+  		      </div>
+          </div>
         );
     }
 });
