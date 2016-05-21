@@ -6,6 +6,7 @@ import {Router,Route,Link,browserHistory} from 'react-router';
 import {Hello} from './components/hello.jsx';
 import {HelloAgain} from './components/helloAgain.jsx';
 import {Login} from './components/login/login.jsx';
+import {NavBar} from './components/home/navBar.jsx';
 
 var HelloAgainWrapper = React.createClass({
 	//This is only used to pass props to the class HelloAgain. I don't see a point to use this (Unless API data is expected I guess) but since this is convention, here it is.
@@ -32,6 +33,7 @@ var App = React.createClass({
       <div className='container'>
         <h1>Template App</h1>
         <ul>
+					<NavBar/>
           <li><Link to="/hello">Hello Module</Link></li>
           <li><Link to="/helloAgain">Hello Again Module</Link></li>
           <li><Link to="/hello/helloAgainMessage">Hello Again Module MSG</Link></li>
