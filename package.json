@@ -4,9 +4,10 @@
   "description": "Hackaton PUCMM Emprende",
   "main": "server/app.js",
   "scripts": {
-    "start": "concurrently \"npm run build-watch\"  \"nodemon server/app.js\"",
+    "start": "npm run build && node server/app.js",
     "build": "webpack --progress --colors --module-bind 'js-babel-loader' --config webpack.config.client.js",
-    "build-watch": "webpack --progress --colors --module-bind 'js-babel-loader' --config webpack.config.client.js --watch"
+    "build-watch": "webpack --progress --colors --module-bind 'js-babel-loader' --config webpack.config.client.js --watch",
+    "dev" : "concurrently \"npm run build-watch\"  \"nodemon server/app.js\"",
   },
   "author": "",
   "license": "ISC",
