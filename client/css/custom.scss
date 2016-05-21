@@ -1,0 +1,32 @@
+$pucmm-color: #1066a4;
+$default-ammount : 10%;
+
+
+.modal-content{
+  border-radius: 0px !important;
+}
+
+[class^="btn-"]{
+  border-radius: 0px!important;
+}
+
+input{
+  border-radius: 0px!important;
+}
+
+.btn-default {
+  background: $pucmm-color;
+  border-color: darken($pucmm-color,$default-ammount);
+  color: darken(white,$default-ammount);
+  &:hover {
+    background-color: darken($pucmm-color,$default-ammount);
+    border-color: darken($pucmm-color, $default-ammount);
+    color: white;
+  }
+
+}
+
+.pucmm-bg{
+  background-color: $pucmm-color;
+  color: darken(white,$default-ammount);
+}

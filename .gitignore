@@ -30,6 +30,7 @@ client/build
 node_modules
 jspm_packages
 bower_components
+client/css/*.css
 
 # Optional npm cache directory
 .npm
