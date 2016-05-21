@@ -1,8 +1,8 @@
 {
-  "name": "ReactExpressTemplate",
+  "name": "pucmm-emprende",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Hackaton PUCMM Emprende",
+  "main": "server/app.js",
   "scripts": {
     "start": "concurrently \"npm run build-watch\"  \"nodemon server/app.js\"",
     "build": "webpack --progress --colors --module-bind 'js-babel-loader' --config webpack.config.client.js",

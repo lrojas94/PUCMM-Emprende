@@ -1,9 +1,11 @@
 {
-  "name": "ReactExpressTemplate",
-  "description": "",
+  "name": "pucmm-emprende",
+  "description": "Hackaton PUCMM Emprende",
   "main": "client/app.jsx",
   "authors": [
-    "Luis Rojas <lrojas94@gmail.com>"
+    "Luis Rojas <lrojas94@gmail.com>",
+    "Jaime Rojas <j_rojas94@hotmil.com>",
+    "Edward Romero <edwardespinal16@gmail.com>"
   ],
   "license": "ISC",
   "homepage": "",
