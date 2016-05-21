@@ -1,8 +1,9 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var config = require('./../config');
-var Idea = require('./../models/idea');
+var helpers = require('./../helpers');
 var router = express.Router();
+var Idea = require('./../models/idea');
 
 
 router.get('/',function(req,res) {
@@ -18,7 +19,16 @@ router.get('/',function(req,res) {
 });
 
 router.post('/add',function(req,res){
-  res.send('Adding C:');
+  //Ideally create new user:
+  var data = req.body; //Comes parsed as Json thanks to body-parser.
+  var idea = new Idea(data);
+  idea.save(function(error){
+    //Validation issues:
+    var parsedErrors = helpers.mongooseErrorsToJson(error);
+    res.send(parsedErrors);
+  });
+
+
 });
 
 module.exports = router;

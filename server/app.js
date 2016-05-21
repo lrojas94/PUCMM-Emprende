@@ -9,7 +9,7 @@ app.use(express.static('client/'));
 app.use(express.static('bower_components/'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use('/api/idea/',idea_routings);
+app.use('/api/idea',idea_routings);
 
 
 app.get('/api',function(req,res){

@@ -1,14 +1,47 @@
 var mongoose = require('mongoose');
+var categories = require('./categories');
 
 var schema = new mongoose.Schema({
-  name: String,
-  short_desc: String,
-  desc: String,
-  date_pub: {type:Date, default: Date.now},
+  name: {
+    type: String,
+    required: true
+  },
+  postedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  category: {
+    type: String,
+    required: true,
+    enum : categories
+  },
+  problem_solved: {
+    type: String,
+    required: true
+  },
+  desc: {
+    type: String,
+    required: true
+  },
+  date_pub: {
+    type:Date,
+    default: Date.now
+  },
   meta: {
-    likes: Number,
-    dislikes: Number,
-    favs: Number,
+    likes: {
+      type: Number,
+      default: 0
+    },
+    dislikes: {
+      type: Number,
+      default: 0
+    },
+    favs: {
+      type: Number,
+      default: 0
+    },
+    tags: [String]
   }
 });
 
