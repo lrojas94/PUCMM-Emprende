@@ -14,16 +14,16 @@ export var Login = React.createClass({
                 <form onClick={this.login}>
                   <div className="modal-body">
                     <div className="form-group">
-                      <label htmlFor="username-field"><i className="fa fa-user" aria-hidden="true"></i> Nombre de Usuario</label>
-                      <input id='username-field' placeholder='Nombre de Usuario' type="text" className='form-control'/>
+                      <label htmlFor="username-field"><i className="fa fa-user" aria-hidden="true"></i> Email</label>
+                      <input id='username-field' placeholder='Email' type="text" className='form-control'/>
                     </div>
                     <div className="form-group">
                       <label htmlFor="password-field"><i className="fa fa-key" aria-hidden="true"></i> Contrasena</label>
-                      <input id='password-field' placeholder='Contrasena' type="text" className='form-control'/>
+                      <input id='password-field' placeholder='Contrasena' type="password" className='form-control'/>
                     </div>
                   </div>
                   <div className="modal-footer">
-                    <input type="submit" className='btn btn-default btn-block' value='Iniciar Sesion'/>
+                    <input type="submit" id="loginBtn" className='btn btn-default btn-block' value='Iniciar Sesion'/>
                   </div>
 
                 </form>

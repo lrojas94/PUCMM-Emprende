@@ -5,9 +5,11 @@ var app = express();
 var idea_routings = require('./controllers/idea');
 var categories_routings = require('./controllers/categories');
 var passport = require('passport');
+
 // This is the file we created in step 2.
 // This will configure Passport to use Auth0
 var strategy = require('./setup-passport');
+
 // Session and cookies middlewares to keep user logged in
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
@@ -26,8 +28,7 @@ app.use(express.static('bower_components/'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/api/idea',idea_routings);
-app.use('/api/categories',categories_routings);
-app.set('port', (process.env.PORT || 3000));
+
 
 app.get('/api',function(req,res){
 	console.log(req.query); //<- This is for a GET
@@ -44,16 +45,28 @@ app.get('/callback',
   passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
   function(req, res) {
     if (!req.user) {
+			console.log("ERROR");
       throw new Error('user null');
     }
-    res.redirect('/');
-
+		
+		console.log("USER LOGGED IN");
+		//res.send({data:'as'});
+		//req.redirect("/");
   });
+
+app.get('/login', function(req, res){
+	res.sendFile(path.join(__dirname + './../client/login.html'));
+});
+
+app.post('/api/login',function(req,res){
+	console.log(req.body);
+})
 
 app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname + './../client/index.html'));
 });
 
-app.listen(app.get('port'), function () {
+
+app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });

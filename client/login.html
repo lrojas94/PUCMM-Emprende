@@ -1,0 +1,28 @@
+<button class="signin-google-popup">Sign in with Google (popup)</button><br>
+<br><p>--- or ---</p>
+<label>Email</label><input type="text" id="email"><br>
+<label>Password</label><input type="password" id="password"><br>
+<button class="signin-db">Sign in with Email/Password</button>
+
+<script src="https://cdn.auth0.com/w2/auth0-6.7.min.js"></script>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script>
+  var auth0 = new Auth0({
+    domain:         'edwardillo.auth0.com',
+    clientID:       '8oURpBRg45JhzqlegVmUvsbamIEHNM9B',
+    callbackURL:    'http://localhost:3000/callback',
+
+  });
+
+
+  $('.signin-db').on('click', function() {
+    auth0.login({
+      sso:false,
+      connection: 'Username-Password-Authentication',
+      username: 'asdasd',
+      password: 'asdasd',
+
+
+    });
+  });
+</script>

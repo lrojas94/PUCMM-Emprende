@@ -16,5 +16,37 @@
     <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/slick-carousel/slick/slick.min.js"></script>
     <script src="/build/app.bundle.js" type="text/javascript"></script>
+
+
+    <script src="https://cdn.auth0.com/w2/auth0-6.7.min.js"></script>
+
+    <script>
+      var auth0 = new Auth0({
+        domain:         'edwardillo.auth0.com',
+        clientID:       '8oURpBRg45JhzqlegVmUvsbamIEHNM9B',
+        callbackURL:    'http://localhost:3000/callback',
+
+      });
+
+      $('#loginBtn').click(function(e) {
+        e.preventDefault();
+        $('#loginModal').modal('hide');
+        auth0.login({
+          sso:false,
+          connection: 'Username-Password-Authentication',
+          username: $('#username-field').val(),
+          password: $('#password-field').val()},
+          function(err, profile, id_token, access_token, state) {
+                      console.log("HERRRO");
+                    /*
+                      store the profile and id_token in a cookie or local storage
+                        $.cookie('profile', profile);
+                        $.cookie('id_token', id_token);
+                    */
+                });
+
+        });
+
+    </script>
   </body>
 </html>
