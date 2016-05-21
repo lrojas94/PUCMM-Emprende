@@ -44,8 +44,12 @@ export var NavBar = React.createClass({
 
               <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav">
-                  <li className="active"><Link to='/'>Home<span className="sr-only">(current)</span></Link></li>
-
+                  <li className={'' + (window.location.pathname == '/home' ? "active" : '')}>
+                    <Link to='/home'>Home<span className="sr-only">(current)</span></Link>
+                  </li>
+                  <li className={'' + (window.location.pathname.indexOf('/ideas') === 0 ? "active" : '')}>
+                    <Link to='/ideas' >Ideas</Link>
+                  </li>
                   <li className="dropdown">
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catalogo por Categorias<span className="caret"></span></a>
                     <ul className="dropdown-menu" ref='categoryDropdown'>

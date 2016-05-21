@@ -14,10 +14,12 @@ var schema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum : categories
+    enum : categories,
+    default: "General"
   },
   problem_solved: {
     type: String,
+    default: "The solved problem",
     required: true
   },
   desc: {
@@ -27,6 +29,11 @@ var schema = new mongoose.Schema({
   date_pub: {
     type:Date,
     default: Date.now
+  },
+  img_url: {
+    type: String,
+    default: "http://dreamatico.com/data_images/people/people-2.jpg",
+    required: true
   },
   meta: {
     likes: {

@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom';
 import {Router,Route,Link,browserHistory} from 'react-router';
 
 //Components:
-import {Hello} from './components/hello.jsx';
-import {HelloAgain} from './components/helloAgain.jsx';
 import {Login} from './components/login/login.jsx';
 import {NavBar} from './components/home/navBar.jsx';
 import {Home} from './components/home/home.jsx';
+import {ShowIdeas} from './components/ideas/showIdeas.jsx';
 
 
 var App = React.createClass({
@@ -47,10 +46,11 @@ ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
 			<Route path="home" component={Home}/>
-      <Route path="hello" component={Hello}>
-      	<Route path="helloAgainMessage" component={HelloAgain}/>
+			<Route path="home" component={Home}/>
+			<Route path="ideas" component={ShowIdeas}>
+				{/*<Route path="idea/:ideaId" component={ShowIdeas}>*/}
+      	{/*<Route path=":ideaNumber" component={HelloAgain}/>*/}
       </Route>
-      <Route path="helloAgain" component={HelloAgain}/>
     </Route>
   </Router>
 ), document.getElementById('content'));

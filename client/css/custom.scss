@@ -1,5 +1,66 @@
 $pucmm-color: #1066a4;
+$clouds-color: #ecf0f1;
+$silver-color: #bdc3c7;
 $default-ammount : 10%;
+
+.idea-hover-row{
+  margin: 1.5em 0em 1em 0em;
+  -webkit-box-shadow: 0px 0px 30px 5px rgba(50, 50, 50, 0.32);
+  -moz-box-shadow:    0px 0px 30px 5px rgba(50, 50, 50, 0.32);
+  box-shadow:         0px 0px 30px 5px rgba(50, 50, 50, 0.32);
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.no-padding-side{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.flex-container{
+  display: flex;
+}
+
+.flex-item{
+  display:flex;
+  flex-grow: 1;
+}
+
+.clouds-bg{
+  background-color: $clouds-color;
+}
+
+.text-center-vertical{
+  display: flex;
+  align-items: center;
+  p{
+    margin-bottom: 0px;
+  }
+}
+
+.silver-bg{
+  background-color: $silver-color;
+}
+
+.img-idea{
+  min-height: 100%;
+  min-width: 100%;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  position: absolute;
+}
+
+
+.img-idea-parent{
+  overflow: hidden;
+  position: relative;
+}
 
 .container-fluid{
   margin:0px;

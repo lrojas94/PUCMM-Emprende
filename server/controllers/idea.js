@@ -11,6 +11,8 @@ router.get('/',function(req,res) {
   db.once('open',function(){
     Idea.find()
     .limit(parseInt(req.query.limit))
+    .skip(parseInt(req.query.skip))
+    .select({name: 1,img_url: 1,problem_solved: 1, meta: 1,category: 1})
     .exec(function(err,projects){
       res.send(projects);
       db.close();
@@ -27,8 +29,6 @@ router.post('/add',function(req,res){
     var parsedErrors = helpers.mongooseErrorsToJson(error);
     res.send(parsedErrors);
   });
-
-
 });
 
 module.exports = router;
