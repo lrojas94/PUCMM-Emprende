@@ -47,8 +47,8 @@ app.get('/callback',
     if (!req.user) {
       throw new Error('user null');
     }
-    res.redirect("localhost:3000")
-		console.log('asdfasdfadsfasdf');
+    res.redirect('/')
+
   });
 
 app.get('*', function (req, res) {
