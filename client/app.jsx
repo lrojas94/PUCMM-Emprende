@@ -7,6 +7,7 @@ import {Hello} from './components/hello.jsx';
 import {HelloAgain} from './components/helloAgain.jsx';
 import {Login} from './components/login/login.jsx';
 import {NavBar} from './components/home/navBar.jsx';
+import {Carousel} from './components/home/carousel.jsx';
 
 
 var App = React.createClass({
@@ -39,6 +40,7 @@ var App = React.createClass({
 				</div>
 {/*----------------------------------------------Container Zone---------------------------------------------------------------*/}
 				<div className='container'>
+				<Carousel/>
 	        <ul>
 	          <li><Link to="/hello">Hello Module</Link></li>
 	          <li><Link to="/helloAgain">Hello Again Module</Link></li>
