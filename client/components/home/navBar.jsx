@@ -4,12 +4,32 @@ import {Link} from 'react-router';
 export var NavBar = React.createClass({
     displayName: 'NavBar',
     getInitialState: function(){
-      return null;
+      return {
+        categories : []
+      };
     },
     componentDidMount: function(){
+      //Get categories:
+      var component = this;
+      $.ajax({
+        url: '/api/categories',
+        dataType: 'json',
+        method: 'GET',
+        success: function(data){
+          component.setState({
+            categories : data
+          });
+        },
+        error: function(err){
+          console.log(err);
+        }
+      });
+
     },
     render: function(){
+        var categories = this.state.categories;
         return (
+
           <nav className="navbar navbar-default">
             <div className="container-fluid">
               <div className="navbar-header">
@@ -28,12 +48,10 @@ export var NavBar = React.createClass({
 
                   <li className="dropdown">
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catalogo por Categorias<span className="caret"></span></a>
-                    <ul className="dropdown-menu">
-                      <li><a href="#">Energia Renovable</a></li>
-                      <li role="separator" className="divider"></li>
-                      <li><a href="#">Sociedad</a></li>
-                      <li role="separator" className="divider"></li>
-                      <li><a href="#">Tecnologias Emergentes</a></li>
+                    <ul className="dropdown-menu" ref='categoryDropdown'>
+                      {categories.map(function(category){
+                        return <li key={category}><a href="#">{category}</a></li>;
+                      })}
                     </ul>
                   </li>
                   <li><a href="#">Sobre PUCMM</a></li>

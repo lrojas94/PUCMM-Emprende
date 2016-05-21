@@ -8,20 +8,6 @@ import {HelloAgain} from './components/helloAgain.jsx';
 import {Login} from './components/login/login.jsx';
 import {NavBar} from './components/home/navBar.jsx';
 
-var HelloAgainWrapper = React.createClass({
-	//This is only used to pass props to the class HelloAgain. I don't see a point to use this (Unless API data is expected I guess) but since this is convention, here it is.
-	displayName: 'HelloAgainWrapper',
-	render: function() {
-		return (
-			<HelloAgain
-			reachingFrom="Hello Again Wrapper Module"
-			message={"You're using a wrapper to pass this message.\n"+
-			"The Router CANNOT pass messages, so basically, you create a classWrapper which renders"+
-			"<YourClass prop='value'/>"}
-			/>
-		);
-	}
-});
 
 var App = React.createClass({
 	openLogin : function(e){
@@ -29,16 +15,24 @@ var App = React.createClass({
 		$('#loginModal').modal('show');
 	},
   render: function() {
+		var loginLinkStyle = {
+			position: 'relative'
+		};
+
     return (
 			<div>
+				<a href='#' style={loginLinkStyle}  className="btn btn-sm btn-primary pull-right" onClick={this.openLogin}>
+					<i className='fa fa-user'></i> Iniciar sesion
+				</a>
 {/*-----------------------------------------------Header Zone------------------------------------------------------------------*/}
 				<Login/>
 				<div className='container-fluid'>
-					<div className='jumbotron'>
-						<h1>
-						PUCMM Emprende
-							<input type='button' className="btn btn-primary pull-right" onClick={this.openLogin} value='Login'/>
-						</h1>
+					<div className='jumbotron pucmm-bg'>
+						<div className='row'>
+							<div className='col-xs-2'><img className='img img-responsive' src='http://www.pucmm.edu.do/recursos/PublishingImages/Paginas/logos/Logo%20PUCMM%20(Color).png'/></div>
+							<div className='col-xs-10'><h1>PUCMM Emprende</h1></div>
+						</div>
+
 					</div>
 
 					<NavBar/>
@@ -62,7 +56,7 @@ ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <Route path="hello" component={Hello}>
-      	<Route path="helloAgainMessage" component={HelloAgainWrapper}/>
+      	<Route path="helloAgainMessage" component={HelloAgain}/>
       </Route>
       <Route path="helloAgain" component={HelloAgain}/>
     </Route>

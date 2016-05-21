@@ -1,12 +1,21 @@
 $pucmm-color: #1066a4;
 $default-ammount : 10%;
 
+.container-fluid{
+  margin:0px;
+  padding: 0px;
+}
+
+.jumbotron{
+  margin: 0px;
+  border-radius: 0px!important;
+}
 
 .modal-content{
   border-radius: 0px !important;
 }
 
-[class^="btn-"]{
+[class^="btn"]{
   border-radius: 0px!important;
 }
 
