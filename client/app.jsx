@@ -7,6 +7,7 @@ import {Login} from './components/login/login.jsx';
 import {NavBar} from './components/home/navBar.jsx';
 import {Home} from './components/home/home.jsx';
 import {ShowIdeas} from './components/ideas/showIdeas.jsx';
+import {Projects} from './components/projects/projects.jsx';
 import {Popular} from './components/home/popular.jsx';
 import {ShowIdea} from './components/ideas/showIdea.jsx';
 import {About} from './components/about/about.jsx';
@@ -58,6 +59,7 @@ ReactDOM.render((
       </Route>
 			<Route path="about" component={About}/>
 			<Route path="support" component={Support}/>
+			<Route path="projects" component={Projects}/>
     </Route>
 
   </Router>
