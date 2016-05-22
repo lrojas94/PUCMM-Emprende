@@ -23,8 +23,16 @@ var schema = new mongoose.Schema({
     required: true
   },
   desc: {
-    type: String,
-    required: true
+        info: {
+          type: String,
+          required: true
+        },
+
+        main_char: {
+          type: [String],
+          required: false,
+          default: []
+        }
   },
   date_pub: {
     type:Date,
@@ -50,12 +58,20 @@ var schema = new mongoose.Schema({
     },
     tags: [String]
   },
-  comments: [{
-    like: Boolean,
-    comment: String,
-    date: {type: Date,default: Date.now()}
-    //User
-  }]
+  comments: {
+    type: [{
+      like: Boolean,
+      comment: String,
+      date: {type: Date,default: Date.now()}
+      //User
+    }],
+    default: []
+  },
+
+  accepted: {
+    type: Boolean,
+    default: false
+  }
 });
 
 module.exports = mongoose.model('Idea',schema);

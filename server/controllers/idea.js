@@ -63,5 +63,26 @@ router.post('/addComment',function(req,res){
   });
 });
 
+router.post('/accepted',function(req,res){
+  //Ideally create new user:
+  var id = req.body.id;
+  var db = config.getConnection();
+  var like = req.body.like === 'true';
+  console.log(Boolean(req.body.like));
+
+  db.once('open',function(){
+    Idea.findByIdAndUpdate(id,{accepted: true},function(error,idea){
+      var data = {
+        status : error ? "error" : "success",
+        error: error,
+        data: idea
+      };
+
+      res.send(data);
+      db.close();
+    });
+  });
+});
+
 
 module.exports = router;
