@@ -46,10 +46,12 @@ export var Recent = React.createClass({
         });
         return (
           <div>
-            <h3>
-              Ideas Recientes
+            <h3 style={{color:"#1066a4"}}>
+              <b>
+                Ideas Recientes
+              </b>
             </h3>
-            <hr/>
+            <div className="separator-div"/>
             <div className="row flex-container">
             {divBoxes}
             </div>

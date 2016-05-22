@@ -8,8 +8,11 @@ import {NavBar} from './components/home/navBar.jsx';
 import {Home} from './components/home/home.jsx';
 import {ShowIdeas} from './components/ideas/showIdeas.jsx';
 import {Popular} from './components/home/popular.jsx';
+import {About} from './components/about/about.jsx';
+import {Support} from './components/support/support.jsx';
+import {Footer} from './components/footer/footer.jsx';
 
-var data = [];
+
 var App = React.createClass({
 	openLogin : function(e){
 		e.preventDefault();
@@ -38,6 +41,7 @@ var App = React.createClass({
 				</div>
 {/*----------------------------------------------Container Zone---------------------------------------------------------------*/}
 				{this.props.children}
+				<Footer/>
 			</div>
     );
   }
@@ -51,6 +55,9 @@ ReactDOM.render((
 				{/*<Route path="idea/:ideaId" component={ShowIdeas}>*/}
       	<Route path="category/:category" component={ShowIdeas}/>
       </Route>
+			<Route path="about" component={About}/>
+			<Route path="support" component={Support}/>
     </Route>
+
   </Router>
 ), document.getElementById('content'));

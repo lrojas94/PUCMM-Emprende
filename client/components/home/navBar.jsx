@@ -48,7 +48,7 @@ export var NavBar = React.createClass({
                     <Link to='/home'>Home<span className="sr-only">(current)</span></Link>
                   </li>
                   <li className={'' + (window.location.pathname === '/ideas' ? " active " : '')}>
-                    <Link to='/ideas' >Ideas</Link>
+                    <Link to='/ideas'>Ideas</Link>
                   </li>
                   <li className={'dropdown' + (window.location.pathname.indexOf('/ideas/category') !== -1 ? " active " : '')}>
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catalogo por Categorias<span className="caret"></span></a>
@@ -58,8 +58,12 @@ export var NavBar = React.createClass({
                       })}
                     </ul>
                   </li>
-                  <li><a href="#">Sobre PUCMM</a></li>
-                  <li><a href="#">Soporte</a></li>
+                  <li className={'' + (window.location.pathname === '/about' ? " active " : '')}>
+                    <Link to='/about'>Sobre PUCMM</Link>
+                  </li>
+                  <li className={'' + (window.location.pathname === '/support' ? " active " : '')}>
+                    <Link to='/support'>Soporte</Link>
+                  </li>
                 </ul>
                 <ul className="nav navbar-nav navbar-right">
                   <form className="navbar-form navbar-left" role="search">

@@ -28,10 +28,14 @@ export var Popular = React.createClass({
         var divBoxes = this.state.data.map(function(idea){
           return (
             <div className="col-xs-6 col-md-3" key={idea._id} style={{marginBottom: "30px"}}>
-              <div className="thumbnail" style={{borderRadius:"0px"}}>
+              <div className="thumbnail">
                 <div>
                   <Link to={'ideas/idea/'+idea._id}>
                     <div style={{position: "relative"}}>
+                      <div className="like-tag">
+                        <i className="fa fa-thumbs-up" style={{position:"absolute", padding:"4px", paddingLeft:"6px", left:"0%"}} aria-hidden="true"></i>
+                        <p className="like-numbers">{idea.meta.likes}</p>
+                      </div>
                       <div className="carousel-footer-parent" style={{height: "25px"}}>
                         <h4 style={{margin: "auto", marginTop: "3px", textAlign:"center"}}>{idea.name}</h4>
                         <div className="carousel-footer"></div>
@@ -46,10 +50,12 @@ export var Popular = React.createClass({
         });
         return (
           <div>
-            <h3>
-              Popular
+            <h3 style={{color:"#1066a4"}}>
+              <b>
+                Ideas Populares
+              </b>
             </h3>
-            <hr/>
+            <div className="separator-div"/>
             <div className="row">
             {divBoxes}
             </div>
