@@ -33,13 +33,28 @@ router.get('/show',function(req,res){
 
 router.post('/add',function(req,res){
   //Ideally create new user:
-  var data = req.body; //Comes parsed as Json thanks to body-parser.
+  var body = req.body;
+  var db = config.getConnection();
+  var data = {
+    name: body.name,
+    desc : {
+      info: body['desc_info'],
+      main_char : body['desc-char'].split(',')
+    },
+    image_url: body.image_url,
+    problem_solved : body.problem_solved,
+    category: body.category,
+    tags: body.tags.split(',')
+  };
+
   var idea = new Idea(data);
-  idea.save(function(error){
-    //Validation issues:
-    var parsedErrors = helpers.mongooseErrorsToJson(error);
-    res.send(parsedErrors);
-  });
+  // idea.save(function(error,idea){
+  //   //Validation issues:
+  //   var parsedErrors = helpers.mongooseErrorsToJson(error);
+  //   console.log(parsedErrors);
+  //   res.send(parsedErrors || idea);
+  //   db.close();
+  // });
 });
 
 router.post('/addComment',function(req,res){

@@ -32,6 +32,8 @@ export var ShowIdeas = React.createClass({
       var ideas = this.state.ideas;
       return (
         <div className='container'>
+          {this.props.children}
+          <h1 className='pucmm-title'>Ideas Propuestas</h1>
           <div className='row'>
             {ideas.map(function(idea){
               return (
