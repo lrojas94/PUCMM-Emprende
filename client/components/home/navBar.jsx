@@ -67,13 +67,9 @@ export var NavBar = React.createClass({
                   <li className={'' + (window.location.pathname === '/support' ? " active " : '')}>
                     <Link to='/support'>Soporte</Link>
                   </li>
-                </ul>
-                <ul className="nav navbar-nav navbar-right">
-                  <form className="navbar-form navbar-left" role="search">
-                    <div className="form-group">
-                      <input type="text" className="form-control" placeholder="Buscar Ideas..."/>
-                    </div>
-                  </form>
+                  <li className={'' + (window.location.pathname === '/ideas/add' ? " active " : '')}>
+                    <Link to='/ideas/add' className='pull-right pucmm-color'><span style={{color:"#1066a4"}}><b>Comparte tu Idea!</b></span></Link>
+                  </li>
                 </ul>
               </div>
             </div>

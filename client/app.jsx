@@ -36,13 +36,14 @@ var App = React.createClass({
 					<div className='jumbotron pucmm-bg'>
 						<div className='row'>
 							<div className='col-xs-2'><img className='img img-responsive' src='http://www.pucmm.edu.do/recursos/PublishingImages/Paginas/logos/Logo%20PUCMM%20(Color).png'/></div>
-							<div className='col-xs-10'>
-								<h1>PUCMM Emprende</h1>
+							<div className='col-xs-10' style={{margin:"0px", color:"#FFF"}}>
+									<h1 style={{position: "relative",margin:"0px", marginTop:"30px"}}><b>PUCMM</b></h1>
+									<h2 style={{position: "relative",margin:"0px", top: "0px", letterSpacing:"11px"}}><b>EMPRENDE</b></h2>
 									<div className='row'>
 									</div>
 							</div>
 						</div>
-						<Link to='/ideas/add' className='btn btn-pucmm pull-right'>Comparte tu Idea!</Link>
+						
 					</div>
 
 					<NavBar/>
