@@ -27,23 +27,23 @@ export var Popular = React.createClass({
     render: function(){
         var divBoxes = this.state.data.map(function(idea){
           return (
-            <div className="col-xs-6 col-md-3 " key={idea._id}>
-              <div className="thumbnail">
-                <div>
+            <div className="col-xs-6 col-md-3 flex-item" key={idea._id}>
+              <div className="thumbnail col-xs-12" >
+                {/*<div>*/}
                   <Link to={'/idea/'+idea._id}>
-                    <div style={{position: "relative"}}>
+                    <div className='img-idea-parent' style={{height: "200px"}}>
                       <div className="like-tag">
                         <i className="fa fa-thumbs-up" style={{position:"absolute", padding:"4px", paddingLeft:"6px", left:"0%"}} aria-hidden="true"></i>
                         <p className="like-numbers">{idea.meta.likes}</p>
                       </div>
-                      <div className="carousel-footer-parent" style={{height: "25px"}}>
+                      <div className="carousel-footer-parent" style={{height: "25px", top:"0%"}}>
                         <h4 style={{margin: "auto", marginTop: "3px", textAlign:"center"}}>{idea.name}</h4>
                         <div className="carousel-footer"></div>
                       </div>
-                      <img className="img img-responsive" src={idea.img_url} alt={idea.name}/>
+                      <img className="img-idea" src={idea.img_url} alt={idea.name}/>
                     </div>
                   </Link>
-                </div>
+                {/*</div>*/}
               </div>
             </div>
           );

@@ -118,7 +118,7 @@ export var ShowIdea = React.createClass({
           <div>
             <div className='container idea-container'>
               <div className='row'>
-                <div className='col-xs-12 img-idea-parent' style={{height: '10em'}}>
+                <div className='col-xs-12 img-idea-parent' style={{height: '20em'}}>
                   <img className='img-idea' src={idea.img_url}/>
                 </div>
               </div>

@@ -34,7 +34,7 @@ export var ShowIdeas = React.createClass({
         <div className='container'>
           {this.props.children}
           <h1 className='pucmm-title'>Ideas Propuestas</h1>
-          <div className='row'>
+          <div className='row flex-container flex-wrap'>
             {ideas.map(function(idea){
               return (
                 category ?

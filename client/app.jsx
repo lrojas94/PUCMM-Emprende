@@ -38,13 +38,13 @@ var App = React.createClass({
 							<div className='col-xs-2'><img className='img img-responsive' src='http://www.pucmm.edu.do/recursos/PublishingImages/Paginas/logos/Logo%20PUCMM%20(Color).png'/></div>
 							<div className='col-xs-10'>
 								<h1>PUCMM Emprende</h1>
-								<Link to='/ideas/add' className='btn btn-pucmm pull-right'>Comparte tu Idea!</Link>
 									<div className='row'>
 									</div>
 							</div>
 						</div>
-
+						<Link to='/ideas/add' className='btn btn-pucmm pull-right'>Comparte tu Idea!</Link>
 					</div>
+
 					<NavBar/>
 				</div>
 {/*----------------------------------------------Container Zone---------------------------------------------------------------*/}
