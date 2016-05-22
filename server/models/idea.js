@@ -49,7 +49,13 @@ var schema = new mongoose.Schema({
       default: 0
     },
     tags: [String]
-  }
+  },
+  comments: [{
+    like: Boolean,
+    comment: String,
+    date: {type: Date,default: Date.now()}
+    //User
+  }]
 });
 
 module.exports = mongoose.model('Idea',schema);

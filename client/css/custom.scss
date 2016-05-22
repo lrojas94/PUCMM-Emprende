@@ -3,6 +3,48 @@ $clouds-color: #ecf0f1;
 $silver-color: #bdc3c7;
 $default-ammount : 10%;
 
+body{
+  height:100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Lato', sans-serif;
+}
+
+p{
+  font-family: 'Roboto', sans-serif;
+}
+
+.btn-pucmm{
+  background: $clouds-color;
+  border-color: darken($clouds-color,$default-ammount);
+  color: $pucmm-color;
+  &.no-border{
+    border: 0px;
+  }
+  &:hover{
+    background: $pucmm-color;
+    border: darken($pucmm-color,$default-ammount);
+    color: $clouds-color;
+  }
+}
+.comment-node{
+  &:nth-child(even){
+    background-color: $clouds-color;  
+  }
+
+}
+
+.comment-like{
+  height: 50px;
+  color: $pucmm-color;
+}
+
+.flex-center{
+  align-items: center;
+}
+
 .idea-hover-row{
   margin: 1.5em 0em 1em 0em;
   -webkit-box-shadow: 0px 0px 30px 5px rgba(50, 50, 50, 0.32);
@@ -56,6 +98,14 @@ $default-ammount : 10%;
   position: absolute;
 }
 
+.idea-container{
+  -webkit-box-shadow: 0px 0px 30px 5px rgba(50, 50, 50, 0.32);
+  -moz-box-shadow:    0px 0px 30px 5px rgba(50, 50, 50, 0.32);
+  box-shadow:         0px 0px 30px 5px rgba(50, 50, 50, 0.32);
+  height: 100%;
+  margin-top: 1.5em;
+  margin-bottom: 2em;
+}
 
 .img-idea-parent{
   overflow: hidden;

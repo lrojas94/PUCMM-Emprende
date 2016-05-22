@@ -13,8 +13,19 @@ router.get('/',function(req,res) {
     .limit(parseInt(req.query.limit))
     .skip(parseInt(req.query.skip))
     .select({name: 1,img_url: 1,problem_solved: 1, meta: 1,category: 1})
-    .exec(function(err,projects){
-      res.send(projects);
+    .exec(function(err,ideas){
+      res.send(ideas);
+      db.close();
+    });
+  });
+});
+
+router.get('/show',function(req,res){
+  var db = config.getConnection();
+  db.once('open',function(){
+    Idea.find({_id: req.query.id})
+    .exec(function(err,idea){
+      res.send(idea);//Ideally, search for more data now.
       db.close();
     });
   });
@@ -30,5 +41,27 @@ router.post('/add',function(req,res){
     res.send(parsedErrors);
   });
 });
+
+router.post('/addComment',function(req,res){
+  //Ideally create new user:
+  var id = req.body.id;
+  var db = config.getConnection();
+  var like = req.body.like === 'true';
+  console.log(Boolean(req.body.like));
+
+  db.once('open',function(){
+    Idea.findByIdAndUpdate(id,{$push : {comments: {comment: req.body.comment,like: like }}},function(error,idea){
+      var data = {
+        status : error ? "error" : "success",
+        error: error,
+        data: idea
+      };
+
+      res.send(data);
+      db.close();
+    });
+  });
+});
+
 
 module.exports = router;

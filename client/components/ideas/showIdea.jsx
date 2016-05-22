@@ -1,24 +1,74 @@
 import React from 'react';
 import {Link} from 'react-router';
+import {IdeaComment} from './ideaComment.jsx';
 
 export var ShowIdea = React.createClass({
     displayName: 'ShowIdea',
     getInitialState: function(){
       return {
-        idea : {}
+        idea : {},
+        comments: []
       };
+    },
+    like: function(){
+      this.addComment(true);
+    },
+    dislike: function(){
+      this.addComment(false);
+    },
+    addComment: function(liked){
+      var component = this;
+      var commentBox = this.refs.commentBox;
+
+      if(commentBox.value === ''){
+        alert("Ha de escribir un comentario antes de calificar esta idea.");
+        return false;
+      }
+      else if(commentBox.value.length <= 5){
+        alert("Su comentario es demasiado corto");
+        return false;
+      }
+
+      //Send ajax;
+      var postData = {
+        id: this.props.params.ideaId,
+        like:  liked,
+        comment: commentBox.value
+      };
+
+      $.ajax({
+        url: '/api/idea/addComment',
+        method: 'POST',
+        dataType: 'json',
+        data: postData,
+        success: function(data){
+          console.log(data);
+          if(data.status !== 'success')
+            return false;
+          console.log(data.data.comments);
+          var comments = data.data.comments;
+          comments.push(postData);
+          component.setState({comments : comments});
+        },
+        error: function(error){
+          console.log(error);
+        }
+      });
+
+
     },
     componentDidMount: function(){
       //Get categories:
       var component = this;
       $.ajax({
-        url: '/api/idea/similarIdeas',
+        url: '/api/idea/show',
         dataType: 'json',
-        method: 'POST',
-        data: { id: component.props.idea.ObjectId },
+        method: 'GET',
+        data: { id: component.props.params.ideaId },
         success: function(data){
           component.setState({
-            categories : data
+            idea : data[0], //A single item is supposed to be returned.,
+            comments: data[0].comments
           });
         },
         error: function(err){
@@ -28,46 +78,68 @@ export var ShowIdea = React.createClass({
 
     },
     render: function(){
-        var categories = this.state.categories;
+        var idea = this.state.idea;
+        var comments = this.state.comments;
+
         return (
-
-          <nav className="navbar navbar-default">
-            <div className="container-fluid">
-              <div className="navbar-header">
-                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                  <span className="sr-only">Toggle navigation</span>
-                  <span className="icon-bar"></span>
-                  <span className="icon-bar"></span>
-                  <span className="icon-bar"></span>
-                </button>
-                <a className="navbar-brand" href="#">Menu</a>
+          <div>
+            <div className='container idea-container'>
+              <div className='row'>
+                <div className='col-xs-12 img-idea-parent' style={{height: '10em'}}>
+                  <img className='img-idea' src={idea.img_url}/>
+                </div>
               </div>
-
-              <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul className="nav navbar-nav">
-                  <li className="active"><Link to='/'>Home<span className="sr-only">(current)</span></Link></li>
-
-                  <li className="dropdown">
-                    <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catalogo por Categorias<span className="caret"></span></a>
-                    <ul className="dropdown-menu" ref='categoryDropdown'>
-                      {categories.map(function(category){
-                        return <li key={category}><a href="#">{category}</a></li>;
-                      })}
-                    </ul>
-                  </li>
-                  <li><a href="#">Sobre PUCMM</a></li>
-                  <li><a href="#">Soporte</a></li>
-                </ul>
-                <ul className="nav navbar-nav navbar-right">
-                <form className="navbar-form navbar-left" role="search">
-                  <div className="form-group">
-                    <input type="text" className="form-control" placeholder="Buscar Ideas..."/>
+              <div className='row'>
+                <div className='col-xs-12 no-padding-side pucmm-bg'><h1 className='text-center'>{idea.name}</h1></div>
+                <div className='col-xs-12'>
+                  <br/>
+                  <p dangerouslySetInnerHTML={{__html:idea.desc}}></p>
+                </div>
+                <hr/>
+                <div className='col-xs-12 no-padding-side flex-container'>
+                  <div className='col-xs-2 no-padding-side flex-item'>
+                    <button onClick={this.like} className='btn btn-pucmm no-border btn-block'>
+                      <i className='fa fa-thumbs-up'></i>
+                      <br/>
+                      Me Gusta
+                    </button>
                   </div>
-                </form>
-                </ul>
+                  <div className='col-xs-8 flex-item clouds-bg'>
+                    <form className='form btn-block'>
+                      <div className='form-group '>
+                        <br/>
+                        <p className='text-center'><label for='reason_rate'>Deja un Comentario</label></p>
+                        <input className='form-control' ref='commentBox' type='text' placeholder="¿Porque te gusta o no esta idea?" />
+                      </div>
+                    </form>
+                  </div>
+                    <div className='col-xs-2 no-padding-side flex-item'>
+                      <button onClick={this.dislike} className='btn btn-pucmm no-border btn-block'>
+                        <i className='fa fa-thumbs-down'></i>
+                        <br/>
+                        No Me Gusta
+                      </button>
+                    </div>
+                </div>
               </div>
+              {/*<div className='col-xs-12'> -- Similar
+              </div>*/}
+
             </div>
-          </nav>
+            <div className='container idea-container'>
+              {/*Comments*/}
+              <div className='row'>
+                <div className='col-xs-12 no-padding-side pucmm-bg'><h4 className='text-center'>Que dicen los demas sobre esta idea</h4></div>
+              </div>
+              {
+                  comments.map(function(comment){
+                    return (
+                      comment ? <IdeaComment comment={comment} key={comment._id}/> : ''
+                    );
+                  })
+              }
+            </div>
+          </div>
       );
     }
 });

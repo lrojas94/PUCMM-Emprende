@@ -30,7 +30,7 @@ export var IdeaListItem = React.createClass({
       var idea = this.props.idea;
       return (
         <div className='col-sm-6 col-xs-12 col-md-4'>
-          <a className='ignore-link' href={'/ideas/idea/' + idea._id}>
+          <Link to={'/idea/' + idea._id}>
             <div className='row idea-hover-row clouds-bg'>
               <div className='col-xs-12 pucmm-bg'>
                 <h4 className='text-center center-block disabled'>{idea.name}</h4>
@@ -61,7 +61,7 @@ export var IdeaListItem = React.createClass({
                 </div>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
       );
     }

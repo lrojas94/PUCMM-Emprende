@@ -8,6 +8,7 @@ import {NavBar} from './components/home/navBar.jsx';
 import {Home} from './components/home/home.jsx';
 import {ShowIdeas} from './components/ideas/showIdeas.jsx';
 import {Popular} from './components/home/popular.jsx';
+import {ShowIdea} from './components/ideas/showIdea.jsx';
 import {About} from './components/about/about.jsx';
 import {Support} from './components/support/support.jsx';
 import {Footer} from './components/footer/footer.jsx';
@@ -51,9 +52,9 @@ ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
 			<Route path="home" component={Home}/>
+			<Route path="idea/:ideaId" component={ShowIdea}/>
 			<Route path="ideas" component={ShowIdeas}>
-				{/*<Route path="idea/:ideaId" component={ShowIdeas}>*/}
-      	<Route path="category/:category" component={ShowIdeas}/>
+      	<Route path="category/:category" component={ShowIdea}/>
       </Route>
 			<Route path="about" component={About}/>
 			<Route path="support" component={Support}/>
