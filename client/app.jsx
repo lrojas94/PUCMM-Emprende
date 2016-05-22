@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router,Route,Link,browserHistory} from 'react-router';
+import {Router,Route,Redirect,Link,browserHistory} from 'react-router';
 
 //Components:
 import {Login} from './components/login/login.jsx';
@@ -57,6 +57,7 @@ var App = React.createClass({
 
 ReactDOM.render((
   <Router history={browserHistory}>
+		<Redirect from="/" to="home"/>
     <Route path="/" component={App}>
 			<Route path="home" component={Home}/>
 			<Route path="idea/:ideaId" component={ShowIdea}/>
