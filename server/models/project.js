@@ -21,17 +21,20 @@ var schema = new mongoose.Schema({
   leader: {
       name: {
         type: String,
-        required: false
+        required: false,
+        default: "Miguel German"
       },
 
       occupation: {
         type: String,
-        required: false
+        required: false,
+        default: "Programador"
       }
   },
   mentors: {
     type: [String],
-    required: false
+    required: false,
+    default: "Ramon Ortencio"
   },
 
   personal: {

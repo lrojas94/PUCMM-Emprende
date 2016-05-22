@@ -16,6 +16,12 @@ p{
   font-family: 'Roboto', sans-serif;
 }
 
+.no-link{
+  &:hover{
+    text-decoration: none;
+  }
+}
+
 .flex-col{
   flex-direction: column;
 }

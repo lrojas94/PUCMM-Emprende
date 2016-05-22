@@ -56,12 +56,15 @@ export var ShowIdea = React.createClass({
         return false;
       }
 
+
       //Send ajax;
       var postData = {
         id: this.props.params.ideaId,
         like:  liked,
         comment: commentBox.value
       };
+
+      commentBox.value = '';
 
       $.ajax({
         url: '/api/idea/addComment',
@@ -170,7 +173,7 @@ export var ShowIdea = React.createClass({
               <div className='row'>
 
                 <a  onClick={this.acceptIdea}>
-                <div className='col-xs-12 no-padding-side pucmm-bg'>
+                <div className='col-xs-12 no-padding-side pucmm-bg btn'>
                   <h4 className='text-center'>
                     {this.state.accepted ? 'Esta idea ha sido aprovada!' : 'Aprobar esta idea'}
                   </h4>

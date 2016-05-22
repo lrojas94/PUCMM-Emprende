@@ -47,7 +47,7 @@ export var Carousel = React.createClass({
         console.log("Starting DivBoxes");
         return (
           <div key={idea._id} className="carousel-div">
-            <Link to={'/ideas/idea/'+idea._id}>
+            <Link to={'/idea/'+idea._id}>
             <div className="carousel-footer-parent">
               <div style={{padding:"10px", textAlign:"right"}}>
                 <h3>{idea.name}</h3>
