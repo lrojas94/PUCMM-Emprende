@@ -30,7 +30,7 @@ export var NavBar = React.createClass({
         var categories = this.state.categories;
         return (
 
-          <nav className="navbar navbar-default">
+          <nav className="navbar navbar-default" style={{marginBottom:"0px"}}>
             <div className="container-fluid">
               <div className="navbar-header">
                 <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -39,7 +39,7 @@ export var NavBar = React.createClass({
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                 </button>
-                <a className="navbar-brand" href="#">[LOGO]</a>
+                <a className="navbar-brand" href="#"></a>
               </div>
 
               <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -62,11 +62,11 @@ export var NavBar = React.createClass({
                   <li><a href="#">Soporte</a></li>
                 </ul>
                 <ul className="nav navbar-nav navbar-right">
-                <form className="navbar-form navbar-left" role="search">
-                  <div className="form-group">
-                    <input type="text" className="form-control" placeholder="Buscar Ideas..."/>
-                  </div>
-                </form>
+                  <form className="navbar-form navbar-left" role="search">
+                    <div className="form-group">
+                      <input type="text" className="form-control" placeholder="Buscar Ideas..."/>
+                    </div>
+                  </form>
                 </ul>
               </div>
             </div>

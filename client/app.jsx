@@ -7,8 +7,9 @@ import {Login} from './components/login/login.jsx';
 import {NavBar} from './components/home/navBar.jsx';
 import {Home} from './components/home/home.jsx';
 import {ShowIdeas} from './components/ideas/showIdeas.jsx';
+import {Popular} from './components/home/popular.jsx';
 
-
+var data = [];
 var App = React.createClass({
 	openLogin : function(e){
 		e.preventDefault();
