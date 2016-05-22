@@ -1,15 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-export var Popular = React.createClass({
-    displayName: 'Popular',
+export var Recent = React.createClass({
+    displayName: 'Recent',
     getInitialState: function(){
       return {data: []};
     },
     componentDidMount: function(){
-      this.loadPopular();
+      this.loadRecent();
     },
-    loadPopular: function(){
+    loadRecent: function(){
       var component = this;
     	//Init ajax call:
     	$.ajax({
@@ -27,18 +27,18 @@ export var Popular = React.createClass({
     render: function(){
         var divBoxes = this.state.data.map(function(idea){
           return (
-            <div className="col-xs-6 col-md-3" key={idea._id} style={{marginBottom: "30px"}}>
+            <div className="col-xs-6 col-md-3 flex-item" key={idea._id} style={{marginBottom: "30px"}}>
               <div className="thumbnail" style={{borderRadius:"0px"}}>
-                <div>
+                <div className="caption">
                   <Link to={'ideas/idea/'+idea._id}>
                     <div style={{position: "relative"}}>
-                      <div className="carousel-footer-parent" style={{height: "25px"}}>
-                        <h4 style={{margin: "auto", marginTop: "3px", textAlign:"center"}}>{idea.name}</h4>
-                        <div className="carousel-footer"></div>
-                      </div>
                       <img className="img img-responsive" src={idea.img_url} alt={idea.name}/>
                     </div>
                   </Link>
+                  <div>
+                    <h4 style={{margin: "auto", marginTop: "5px", textAlign:"center"}}>{idea.name}</h4>
+                    <p style={{marginTop: "10px", textAlign:"justify"}}>{idea.problem_solved}</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -47,10 +47,10 @@ export var Popular = React.createClass({
         return (
           <div>
             <h3>
-              Popular
+              Ideas Recientes
             </h3>
             <hr/>
-            <div className="row">
+            <div className="row flex-container">
             {divBoxes}
             </div>
           </div>
