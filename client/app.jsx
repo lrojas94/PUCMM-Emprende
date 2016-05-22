@@ -9,6 +9,10 @@ import {Home} from './components/home/home.jsx';
 import {ShowIdeas} from './components/ideas/showIdeas.jsx';
 import {ShowIdea} from './components/ideas/showIdea.jsx';
 import {AddIdea} from './components/ideas/addIdea.jsx';
+import {Projects} from './components/projects/projects.jsx';
+import {Support} from './components/support/support.jsx';
+import {About} from './components/about/about.jsx';
+import {Footer} from './components/footer/footer.jsx';
 
 var data = [];
 var App = React.createClass({
@@ -45,6 +49,7 @@ var App = React.createClass({
 				</div>
 {/*----------------------------------------------Container Zone---------------------------------------------------------------*/}
 				{this.props.children}
+				<Footer/>
 			</div>
     );
   }
@@ -57,8 +62,12 @@ ReactDOM.render((
 			<Route path="idea/:ideaId" component={ShowIdea}/>
 			<Route path="ideas" component={ShowIdeas}>
 				<Route path='add' component={AddIdea}/>
-      </Route>
-			<Route path="ideas/category/:category" component={ShowIdeas}/>
+	    </Route>
+			<Route path="add" component={AddIdea}/>
+			<Route path="category/:category" component={ShowIdea}/>
+			<Route path="about" component={About}/>
+			<Route path="support" component={Support}/>
+			<Route path="projects" component={Projects}/>
     </Route>
   </Router>
 ), document.getElementById('content'));
