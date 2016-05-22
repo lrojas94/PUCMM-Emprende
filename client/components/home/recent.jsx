@@ -27,12 +27,12 @@ export var Recent = React.createClass({
     render: function(){
         var divBoxes = this.state.data.map(function(idea){
           return (
-            <div className="col-xs-6 col-md-3 flex-item" key={idea._id} style={{marginBottom: "30px"}}>
-              <div className="thumbnail" style={{borderRadius:"0px"}}>
+            <div className="col-xs-6 col-md-3 flex-item" key={idea._id}>
+              <div className="thumbnail col-xs-12 " style={{borderRadius:"0px"}}>
                 <div className="caption">
                   <Link to={'/idea/'+idea._id}>
-                    <div style={{position: "relative"}}>
-                      <img className="img img-responsive" src={idea.img_url} alt={idea.name}/>
+                    <div className='img-idea-parent' style={{position: "relative",height:'150px'}}>
+                      <img className="img img-responsive img-idea" src={idea.img_url} alt={idea.name}/>
                     </div>
                   </Link>
                   <div>

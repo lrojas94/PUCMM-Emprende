@@ -20,6 +20,10 @@ p{
   flex-direction: column;
 }
 
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
 .btn-pucmm{
   background: $clouds-color;
   border-color: darken($clouds-color,$default-ammount);
@@ -174,7 +178,7 @@ input{
   font-size: 1.5em; //This should be zero (0)
   cursor: pointer;
   background: transparent;
-  color: #FFFFFF;
+  color: #000000;
   opacity: 0.35;
   top: 50%;
   -webkit-transform: translate(0, -50%);
@@ -185,7 +189,7 @@ input{
   outline: none;
   &:hover{
       outline: none;
-      color: #FFFFFF;
+      color: #000000;
       opacity: 1;
       &:before {
           opacity: 1;
@@ -259,7 +263,7 @@ input{
   height: 100%;
   width: 100%;
   position: absolute;
-  opacity: 0.25;
+  opacity: 0.55;
   bottom: 0%;
 }
 
@@ -296,6 +300,7 @@ input{
 }
 
 .like-tag{
+  z-index: 5;
   position:absolute;
   color:#FFF;
   background-color:$pucmm-color;
