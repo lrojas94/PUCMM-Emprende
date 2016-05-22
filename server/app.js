@@ -28,7 +28,7 @@ app.use(express.static('bower_components/'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/api/idea',idea_routings);
-
+app.use('/api/categories',categories_routings);
 
 app.get('/api',function(req,res){
 	console.log(req.query); //<- This is for a GET
@@ -48,7 +48,7 @@ app.get('/callback',
 			console.log("ERROR");
       throw new Error('user null');
     }
-		
+
 		console.log("USER LOGGED IN");
 		//res.send({data:'as'});
 		//req.redirect("/");
@@ -60,7 +60,7 @@ app.get('/login', function(req, res){
 
 app.post('/api/login',function(req,res){
 	console.log(req.body);
-})
+});
 
 app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname + './../client/index.html'));
