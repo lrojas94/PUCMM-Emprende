@@ -28,15 +28,15 @@ export var ShowIdeas = React.createClass({
 
     },
     render: function(){
-      var search = this.props.params.searchIdeas;
+      var category = this.props.params.category;
       var ideas = this.state.ideas;
       return (
         <div className='container'>
           <div className='row'>
             {ideas.map(function(idea){
               return (
-                search ?
-                  (idea.name.toLowerCase().indexOf(search.toLowerCase()) !== -1 ? <IdeaListItem idea={idea} key={idea._id}/> : '')
+                category ?
+                  (idea.category === category ? <IdeaListItem idea={idea} key={idea._id}/> : '')
                   : <IdeaListItem idea={idea} key={idea._id}/>
               );
             })}

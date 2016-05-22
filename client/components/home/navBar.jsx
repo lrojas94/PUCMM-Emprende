@@ -44,17 +44,17 @@ export var NavBar = React.createClass({
 
               <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav">
-                  <li className={'' + (window.location.pathname == '/home' ? "active" : '')}>
+                  <li className={'' + (window.location.pathname == '/home' ? " active " : '')}>
                     <Link to='/home'>Home<span className="sr-only">(current)</span></Link>
                   </li>
-                  <li className={'' + (window.location.pathname.indexOf('/ideas') === 0 ? "active" : '')}>
+                  <li className={'' + (window.location.pathname === '/ideas' ? " active " : '')}>
                     <Link to='/ideas' >Ideas</Link>
                   </li>
-                  <li className="dropdown">
+                  <li className={'dropdown' + (window.location.pathname.indexOf('/ideas/category') !== -1 ? " active " : '')}>
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catalogo por Categorias<span className="caret"></span></a>
                     <ul className="dropdown-menu" ref='categoryDropdown'>
                       {categories.map(function(category){
-                        return <li key={category}><a href="#">{category}</a></li>;
+                        return <li key={category}><Link to={'/ideas/category/'+category}>{category}</Link></li>;
                       })}
                     </ul>
                   </li>

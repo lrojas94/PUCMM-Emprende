@@ -49,7 +49,7 @@ ReactDOM.render((
 			<Route path="home" component={Home}/>
 			<Route path="ideas" component={ShowIdeas}>
 				{/*<Route path="idea/:ideaId" component={ShowIdeas}>*/}
-      	{/*<Route path=":ideaNumber" component={HelloAgain}/>*/}
+      	<Route path="category/:category" component={ShowIdeas}/>
       </Route>
     </Route>
   </Router>
