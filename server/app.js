@@ -3,6 +3,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var app = express();
 var idea_routings = require('./controllers/idea');
+var project_routings = require('./controllers/project');
 var categories_routings = require('./controllers/categories');
 var passport = require('passport');
 
@@ -29,6 +30,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/api/idea',idea_routings);
 app.use('/api/categories',categories_routings);
+app.use('/api/project',project_routings);
 
 app.get('/api',function(req,res){
 	console.log(req.query); //<- This is for a GET

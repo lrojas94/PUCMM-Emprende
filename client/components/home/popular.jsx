@@ -27,7 +27,7 @@ export var Popular = React.createClass({
     render: function(){
         var divBoxes = this.state.data.map(function(idea){
           return (
-            <div className="col-xs-6 col-md-3" key={idea._id} style={{marginBottom: "30px"}}>
+            <div className="col-xs-6 col-md-3 " key={idea._id}>
               <div className="thumbnail">
                 <div>
                   <Link to={'/idea/'+idea._id}>
@@ -56,7 +56,7 @@ export var Popular = React.createClass({
               </b>
             </h3>
             <div className="separator-div"/>
-            <div className="row">
+            <div className="row flex-container" style={{flexWrap: "wrap"}}>
             {divBoxes}
             </div>
           </div>

@@ -52,7 +52,7 @@ export var Recent = React.createClass({
               </b>
             </h3>
             <div className="separator-div"/>
-            <div className="row flex-container">
+            <div className="row flex-container" style={{flexWrap: "wrap"}}>
             {divBoxes}
             </div>
           </div>
