@@ -36,7 +36,8 @@ export var Recent = React.createClass({
                     </div>
                   </Link>
                   <div>
-                    <h4 style={{margin: "auto", marginTop: "5px", textAlign:"center"}}>{idea.name}</h4>
+                    <h4 style={{margin: "auto", marginTop: "5px", textAlign:"center"}} className='pucmm-color'>{idea.name}</h4>
+                    <hr/>
                     <p style={{marginTop: "10px", textAlign:"justify"}}>{idea.problem_solved}</p>
                   </div>
                 </div>
