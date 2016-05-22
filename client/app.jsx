@@ -64,7 +64,7 @@ ReactDOM.render((
 				<Route path='add' component={AddIdea}/>
 	    </Route>
 			<Route path="add" component={AddIdea}/>
-			<Route path="category/:category" component={ShowIdea}/>
+			<Route path="ideas/category/:category" component={ShowIdeas}/>
 			<Route path="about" component={About}/>
 			<Route path="support" component={Support}/>
 			<Route path="projects" component={Projects}/>

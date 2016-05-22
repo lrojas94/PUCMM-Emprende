@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {Router,Link,browserHistory} from 'react-router';
 import {FormDatatoJson} from './../helper/helper.jsx';
 
 
@@ -23,6 +23,8 @@ export var AddIdea = React.createClass({
   onSubmit: function(e){
 
     e.preventDefault();
+    var component = this;
+    var closeBtn = this.refs.cancelBtn;
     var jsonData = FormDatatoJson($(this.refs.addIdea).serializeArray());
     console.log(jsonData);
     $.ajax({
@@ -31,10 +33,9 @@ export var AddIdea = React.createClass({
       method: 'POST',
       dataType: 'json',
       success: function(data){
-        if(data.status !== 'success')
+        if(!data.name)//Means we got actual data.
           return false;
-        alert('Su data fue guardada satisfactoriamente');
-
+        browserHistory.push('/ideas');
       }
     });
 
@@ -99,7 +100,7 @@ export var AddIdea = React.createClass({
               <input type="submit" className='btn btn-pucmm btn-block'/>
             </div>
             <div className='col-xs-6'>
-              <Link to='/ideas/' className='btn btn-danger btn-block'>Cancelar</Link>
+              <Link to='/ideas/' ref='cancelBtn' className='btn btn-danger btn-block'>Cancelar</Link>
             </div>
           </div>
           <br/>

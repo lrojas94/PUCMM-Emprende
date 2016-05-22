@@ -7,6 +7,9 @@ export var Projects = React.createClass({
       projects: [],
     };
   },
+  componentDidMount: function() {
+    this.loadProjects();
+  },
   loadProjects: function(){
     var component = this;
     console.log(component.props.params.ideaId);
@@ -29,18 +32,18 @@ export var Projects = React.createClass({
     var project_show = this.state.projects.map(function(project){
       var mentores = project.mentors.map(function(mentor){
         return (
-          <li>{mentor}</li>
+          <li className='list-group-item'>{mentor}</li>
         );
       });
 
       var personales = project.personal.map(function(personal){
         return (
-          <li>{personal}</li>
+          <li >{personal}</li>
         );
       });
 
       return(
-        <div className="container idea-container">
+        <div className="container idea-container" key={project._id}>
           <div className="row flex-container project-divisor">
                 <div className="col-xs-3 img-idea-parent col-md-2 flex-item">
                   <img className="img-idea"
@@ -61,14 +64,18 @@ export var Projects = React.createClass({
           </div>
           <div className='row'>
             <div className='col-xs-12'>
-              <h4>Mentor en Jefe:<span className='pull-right'>{project.leader.name}<small className='text-primary'>{project.leader.ocupation}</small></span></h4>
+              <h4>Mentor en Jefe:</h4>
+              <ul className='list-group'>
+                <li  className='list-group-item pucmm-bg'><span>{project.leader.name}<small> | {project.leader.occupation}</small></span></li>
+              </ul>
             </div>
             <div className='col-xs-12'>
-              <h4>Mentor(es):<span className='pull-right'><ul>{mentores}</ul></span></h4>
+              <h4>Mentor(es):</h4>
+              <ul className='list-group'>{mentores}</ul>
             </div>
             <div className='col-xs-12'>
               <h4>Notas Personales</h4>
-              <ul className='list-group'>
+              <ul>
                   {personales}
               </ul>
             </div>
@@ -93,7 +100,7 @@ export var Projects = React.createClass({
       );
     });
     return (
-      <div></div>
+      <div>{project_show}</div>
     );
   }
 });

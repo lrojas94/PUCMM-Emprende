@@ -17,7 +17,7 @@ export var Recent = React.createClass({
     		method: 'GET',
     		dataType: 'json',
     		success: function(data){
-            component.setState({data: data});
+            component.setState({data: data.slice(4,8)});
         },
         error: function(xhr, status, err){
           console.error(this.props.url, status, toString());

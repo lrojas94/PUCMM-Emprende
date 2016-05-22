@@ -1,55 +1,25 @@
+var express = require('express');
 var mongoose = require('mongoose');
-var states = ['Aprovacion', 'Refuerzo', 'Evaluacion', 'Ejecucion'];
-var schema = new mongoose.Schema({
-  idea: {
-      name: {
-        type: String,
-        required: true
-      },
+var config = require('./../config');
+var helpers = require('./../helpers');
+var router = express.Router();
+var Project = require('./../models/project');
 
-      info: {
-        type: String,
-        required: true
-      },
 
-      img_url: {
-        type: String,
-        required: false
-      }
-
-  },
-  leader: {
-      name: {
-        type: String,
-        required: true
-      },
-
-      occupation: {
-        type: String,
-        required: false
-      }
-  },
-  mentors: {
-    type: [],
-    required: true
-  },
-
-  personal: {
-    type: [],
-    required: false
-  },
-
-  aproval_status: {
-    type: String,
-    required: true,
-    enum: states,
-    default: 'Aprovacion'
-  },
-
-  date_pub: {
-    type:Date,
-    default: Date.now
-  },
+router.get('/',function(req,res) {
+  var db = config.getConnection();
+  db.once('open',function(){
+    Project.find()
+    .limit(parseInt(req.query.limit))
+    .skip(parseInt(req.query.skip))
+    .select()
+    .exec(function(err,ideas){
+      res.send(ideas);
+      db.close();
+    });
+  });
 });
 
-module.exports = mongoose.model('Proyecto',schema);
+
+
+module.exports = router;

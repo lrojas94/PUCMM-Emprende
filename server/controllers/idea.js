@@ -4,6 +4,7 @@ var config = require('./../config');
 var helpers = require('./../helpers');
 var router = express.Router();
 var Idea = require('./../models/idea');
+var Project = require('./../models/project');
 
 
 router.get('/',function(req,res) {
@@ -97,9 +98,23 @@ router.post('/accepted',function(req,res){
         error: error,
         data: idea
       };
+      //Add to Projects:
+      var ideaData = {
+        name: idea.name,
+        info: idea.problem_solved,
+        img_url: idea.img_url
+      };
 
-      res.send(data);
-      db.close();
+      console.log(ideaData);
+
+      var project = new Project({idea : ideaData});
+      project.save(function(err,p){
+        console.log(err);
+        res.send(data);
+        
+        db.close();
+      });
+
     });
   });
 });
