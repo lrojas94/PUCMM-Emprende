@@ -7,7 +7,7 @@
     "start": "npm run build && node server/app.js",
     "build": "webpack --progress --colors --module-bind 'js-babel-loader' --config webpack.config.client.js",
     "build-watch": "webpack --progress --colors --module-bind 'js-babel-loader' --config webpack.config.client.js --watch",
-    "dev" : "concurrently \"npm run build-watch\"  \"nodemon server/app.js\""
+    "dev": "concurrently \"npm run build-watch\"  \"nodemon server/app.js\""
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +15,7 @@
     "babel-core": "^6.9.0",
     "babel-loader": "^6.2.4",
     "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
     "body-parser": "^1.15.1",
     "cookie-parser": "^1.4.2",
     "express": "^4.13.4",
@@ -25,6 +26,7 @@
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
     "react-router": "^2.4.1",
+    "react-tag-input": "^2.2.7",
     "webpack": "^1.13.1"
   },
   "devDependencies": {

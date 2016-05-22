@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {Router,Route,Link,browserHistory} from 'react-router';
 
 //Components:
+
 import {Login} from './components/login/login.jsx';
 import {NavBar} from './components/home/navBar.jsx';
 import {Home} from './components/home/home.jsx';
@@ -12,6 +13,7 @@ import {ShowIdea} from './components/ideas/showIdea.jsx';
 import {About} from './components/about/about.jsx';
 import {Support} from './components/support/support.jsx';
 import {Footer} from './components/footer/footer.jsx';
+import {AddIdea} from './components/ideas/addIdea.jsx';
 
 
 var App = React.createClass({
@@ -56,9 +58,9 @@ ReactDOM.render((
 			<Route path="ideas" component={ShowIdeas}>
       	<Route path="category/:category" component={ShowIdea}/>
       </Route>
+			<route path="add" component={AddIdea}/>
 			<Route path="about" component={About}/>
 			<Route path="support" component={Support}/>
     </Route>
-
   </Router>
 ), document.getElementById('content'));
