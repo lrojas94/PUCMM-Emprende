@@ -30,7 +30,7 @@ export var Popular = React.createClass({
             <div className="col-xs-6 col-md-3" key={idea._id} style={{marginBottom: "30px"}}>
               <div className="thumbnail">
                 <div>
-                  <Link to={'ideas/idea/'+idea._id}>
+                  <Link to={'/idea/'+idea._id}>
                     <div style={{position: "relative"}}>
                       <div className="like-tag">
                         <i className="fa fa-thumbs-up" style={{position:"absolute", padding:"4px", paddingLeft:"6px", left:"0%"}} aria-hidden="true"></i>

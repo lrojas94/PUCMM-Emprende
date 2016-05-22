@@ -30,7 +30,7 @@ export var Recent = React.createClass({
             <div className="col-xs-6 col-md-3 flex-item" key={idea._id} style={{marginBottom: "30px"}}>
               <div className="thumbnail" style={{borderRadius:"0px"}}>
                 <div className="caption">
-                  <Link to={'ideas/idea/'+idea._id}>
+                  <Link to={'/idea/'+idea._id}>
                     <div style={{position: "relative"}}>
                       <img className="img img-responsive" src={idea.img_url} alt={idea.name}/>
                     </div>
