@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import {Carousel} from './carousel.jsx';
-
+import {Popular} from './popular.jsx';
 export var Home = React.createClass({
     displayName: 'home',
     componentDidMount: function(){
@@ -22,6 +22,7 @@ export var Home = React.createClass({
     					<Carousel/>
     				</div>
     				<div className='container'>
+              <Popular/>
     	      </div>
           </div>
         );

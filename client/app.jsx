@@ -47,7 +47,6 @@ ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
 			<Route path="home" component={Home}/>
-			<Route path="home" component={Home}/>
 			<Route path="ideas" component={ShowIdeas}>
 				{/*<Route path="idea/:ideaId" component={ShowIdeas}>*/}
       	{/*<Route path=":ideaNumber" component={HelloAgain}/>*/}
