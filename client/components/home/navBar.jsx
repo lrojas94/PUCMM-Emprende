@@ -58,6 +58,9 @@ export var NavBar = React.createClass({
                       })}
                     </ul>
                   </li>
+                  <li className={'' + (window.location.pathname === '/ideas' ? " active " : '')}>
+                    <Link to='/projects'>Mis Proyectos</Link>
+                  </li>
                   <li className={'' + (window.location.pathname === '/about' ? " active " : '')}>
                     <Link to='/about'>Sobre PUCMM</Link>
                   </li>
