@@ -38,23 +38,28 @@ router.post('/add',function(req,res){
   var data = {
     name: body.name,
     desc : {
-      info: body['desc_info'],
+      info: body['desc-info'],
       main_char : body['desc-char'].split(',')
     },
-    image_url: body.image_url,
+    img_url: body.image_url,
     problem_solved : body.problem_solved,
     category: body.category,
     tags: body.tags.split(',')
   };
 
   var idea = new Idea(data);
-  // idea.save(function(error,idea){
-  //   //Validation issues:
-  //   var parsedErrors = helpers.mongooseErrorsToJson(error);
-  //   console.log(parsedErrors);
-  //   res.send(parsedErrors || idea);
-  //   db.close();
-  // });
+  idea.save(function(error,idea){
+    //Validation issues:
+    if(error !== null){
+      var parsedErrors = helpers.mongooseErrorsToJson(error);
+      console.log(parsedErrors);
+      res.send(parsedErrors);
+    }
+
+    console.log(idea);
+    res.send(idea);
+    db.close();
+  });
 });
 
 router.post('/addComment',function(req,res){
