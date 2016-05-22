@@ -13,7 +13,7 @@ export var IdeaComment = React.createClass({
                   <i className={"center-block fa fa-2x " + (comment.like ? "fa-thumbs-up" : "fa-thumbs-down")}></i>
                 </div>
                 <div className='col-xs-10 flex-item comment-comment flex-center'>
-                  <p style={{marginBottom: '0px'}} className='text-center center-block '>{comment.comment}</p>
+                  <p style={{marginBottom: '0px'}} className='text-justify'>{comment.comment}</p>
                 </div>
                 <div className='col-xs-1'></div>
               </div>

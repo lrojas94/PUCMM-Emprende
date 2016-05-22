@@ -48,8 +48,10 @@ export var AddIdea = React.createClass({
     });
     return(
       <div className='container idea-container'>
+        <div className='pucmm-bg row'>
+          <h2 className='text-center'>Agregar Idea Nueva</h2>
+        </div>
         <form onSubmit={this.onSubmit} ref="addIdea" className='form' method = "post">
-          <h2>Agregar Idea Nueva</h2>
           <br/>
           <div className='row'>
             <div className='col-xs-12'>
